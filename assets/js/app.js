@@ -56,6 +56,16 @@ function palindrome(str) {
 // cl(palindrome("racecar"))   // true
 
 
+// find duplicate number in array using set() method :
+const setDuplicate = (arr) => {
+    // return new Set(arr)  // it returns object 
+    // if u want o/p in Array
+    return [... new Set(arr)]
+}
+// cl(setDuplicate([1, 2, 3, 4, 1, 2, 3, 4]))
+
+
+
 // find duplicate number in array using includes :
 
 function duplicateInclude(arr) {
@@ -69,6 +79,20 @@ function duplicateInclude(arr) {
 }
 
 // cl(duplicateInclude([1, 2, 3, 4, 1, 2, 3, 4]))
+
+
+// find duplicate in array using reduce :: 
+
+const reduceDuplicate = (arr) => {
+    return arr.reduce((acc, cv) => {
+        if (!acc.includes(cv)) {
+            acc.push(cv)
+        }
+        return acc
+    }, [])
+}
+
+// cl(reduceDuplicate([1, 2, 3, 4, 1, 2, 3, 4]))
 
 // find duplicate number in array without any inbuilt:
 
@@ -96,14 +120,24 @@ function duplicate(arr) {
 
 // cl(duplicate([1, 2, 3, 4, 1, 2, 3, 4]))
 
+
+// remove duplicate from array using filter
+let duplicatefilter = (arr) => {
+
+    // 
+    return arr.filter((num, i, arr) => {
+        return arr.indexOf(num) === i
+    })
+}
+// cl(duplicatefilter([1, 2, 3, 4, 1, 2, 3, 4]))
 // largest words in string 
 
-function largestWords(str){
+function largestWords(str) {
     let result = "";
-   let words = str.split(' ')
+    let words = str.split(' ')
     cl(words)
-    for(let word of words){
-        if(word.length > result.length){
+    for (let word of words) {
+        if (word.length > result.length) {
             result = word
 
         }
@@ -115,10 +149,10 @@ function largestWords(str){
 
 // closusers example
 
-function outer (){
-    let fname ="krish" ;
-    let lname ="www";
-    function inner(){
+function outer() {
+    let fname = "krish";
+    let lname = "www";
+    function inner() {
         cl(`my name is ${fname}${lname}`)
     }
     return inner()
@@ -127,40 +161,40 @@ function outer (){
 
 // promice 
 
-let fetchData = new Promise ((resolve,reject)=>{
-    let success = true ;
-    if(success){
+let fetchData = new Promise((resolve, reject) => {
+    let success = true;
+    if (success) {
         resolve("data we got")
-    }else{
+    } else {
         reject("error")
     }
 })
 
-fetchData.then((res)=>{
+fetchData.then((res) => {
     cl(res)
-}).catch((err)=>{
+}).catch((err) => {
     cl(err)
 })
 
 // async / await 
 
-function fetchDAtaas(){
- return new Promise ((resolve,reject)=>{
-    let flag = true
-    if(flag){
-        resolve("fetch data promise")
-    }else{
-        reject("error from promise")
-    }  
- })
+function fetchDAtaas() {
+    return new Promise((resolve, reject) => {
+        let flag = true
+        if (flag) {
+            resolve("fetch data promise")
+        } else {
+            reject("error from promise")
+        }
+    })
 }
 
-async function getDATTA(){
-    try{
+async function getDATTA() {
+    try {
         let res = await fetchDAtaas();
         cl(res)
     }
-    catch(err){
+    catch (err) {
         cl(err)
     }
 }
@@ -169,35 +203,52 @@ async function getDATTA(){
 
 
 //(IIFI)= imideately Invokes function expression
-//inner function must be a Anonymous >> without name 
+//inner function must be a Anonymous >> without name
 
-    (function (nam) {
-        console.log(`my name is ${nam}`);
-    })('krishna');
+(function (nam) {
+    console.log(`IIFI function with function keyword my  name is ${nam}`);
+})('krishna');
 
 
-// array destructuring >>
-let arr = [10,20,30,55,44]
-let [a,b,c] =arr
+// use arrow function in IIFI>>
+((nam) => {
+    console.log(`use arrow function in IIFI my name is ${nam}`);
+})('krishna');
+
+//using iifi create async/await 
+
+(async () => {
+    const nam = await Promise.resolve(' krishna');
+    console.log(`IIFI async function my name is ${nam}`);
+})();
+
+// array destructuring :: array destructuring, which 
+// assigns values from the array to variables in order:  >>
+// The remaining values 55 and 44 are ignored 
+// because they aren't included in the destructuring pattern.
+
+let arr = [10, 20, 30, 55, 44]
+let [a, b, c] = arr
+// Useing the rest operator 
+let [n, p, z, ...rest] = arr;
+// console.log(n);    // 10
+// console.log(p);    // 20
+// console.log(z);    // 30
+// console.log(rest); // [55, 44]
 // cl(a)
 // cl(b)
 // cl(c)
 
-// array destructuring  swap values 
+// array destructuring :: swap values 
 
-let x=5,y=10;
-[x,y] = [y,x]
+let x = 5, y = 10;
+[x, y] = [y, x]
 // cl(x)
 // cl(y)
 
 
 // object destructuring >> 
-// let obj = {
-//     name:"kk",
-//     lname:"jj"
-// }
-// const{name,lname} = obj
-// cl(name)
+
 
 let obj = {
     name1: "kk",
@@ -207,71 +258,232 @@ let obj = {
 // const { name1, lname } = obj;
 // console.log(name1); // Output: kk
 
+// largest number in array using inbuilt math.max()
 
-// largest number in array 
+const mathLargest = (arr) => {
+    // need to use rest operator to get values from array
+    return Math.max(...arr)
+}
 
-function largest (arr){
+// cl(mathLargest([22, 44, 77, 22, 55, 65]))
+
+// largest number in array using loop
+
+function largest(arr) {
     let max = arr[0];
-    for(let i =0 ;i<arr.length;i++){
-        if(arr[i] > max){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
             max = arr[i]
         }
     }
     return max
 }
 // cl(largest([22,44,77,22,55,65]))
-// arr = [22, 44, 77, 22, 55, 65]
-const lar =  arr.reduce((acc,cv)=>{
-   return (cv>acc) ? cv :acc
-},arr[0])
 
-// cl(lar)
+// find largest number in array :: using reduce method
+// need to set parameter in arrow function :
+let largestt = (arr) => {
+    return arr.reduce((acc, cv) => {
+        return (cv > acc) ? cv : acc
+    }, arr[0])
+}
 
-// let arr1 = [22, 44, 77, 22, 55, 65]
-// let seclarg = arr1.sort((a,b)=>{
-//     return b-a 
-// })[1]
-// cl(seclarg)
 
-function primeno (n){
-   if(n<=1)return false
-   if(n===2)return true
-   if(n%2 === 0)return false
-   for(let i=3;i<=Math.sqrt(n);i++){
-    if(n % i === 0){
-        return false
+// cl(largestt([22, 44, 77, 22, 55, 65]))
+
+
+// find secoand largest number in array using sort method ::
+let secoandLargest = (arr1) => {
+    return arr1.sort((a, b) => {
+        return b - a
+    })[1]
+}
+
+// cl(secoandLargest([22, 44, 77, 22, 55, 65]))
+
+
+// find a number is prime or not 
+function primeno(n) {
+    if (n <= 1) return false
+    if (n === 2) return true
+    if (n % 2 === 0) return false
+    for (let i = 3; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false
+        }
     }
-   }
-   cl("prime no")
-   return true
+    cl("prime no")
+    return true
 
 }
 // cl(primeno(7))
 
+// find a number is prime from n to n limit or not 
+const primeNumLimit = (start, end) => {
+    // start must be smaller than end then only we get positive value
+    if (start > end) return `provide correct input `
+    // we only get range from user so, create array of that length ,with 0 value
+    let zeroArray = new Array(end - start + 1).fill(0)
+    // cl(zeroArray)
+    //then initialse this 0 values in array with , current number
+    let rangeArray = zeroArray.map((_, i) => {
+        return i + start
+    })
+    cl(rangeArray)
+    // we got array like [5,6,7,8,9,10,...] then filter this with prime function ..
+    let result = rangeArray.filter((num) => primeno(num))
+    return result
+}
+// cl(primeNumLimit(5,20))
+
+// easy way to handle to get prime numbers in limit .. 
+const limitfindPrimesChat = (start, end) => {
+    const primes = [];
+
+    for (let num = start; num <= end; num++) {
+        if (isPrimeN(num)) {
+            primes.push(num);
+        }
+    }
+
+    return primes;
+};
+
+const isPrimeN = (n) => {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+};
+// cl(limitfindPrimesChat(10,20))
+
 // find count of element in array
-let num3 = [1,2,3,4,1,2,3,4,1]
+let num3 = [1, 2, 3, 4, 1, 2, 3, 4, 1]
 
-let res={}
+let res = {}
 
-for(let num of num3){
-    if(res[num]){
+for (let num of num3) {
+    if (res[num]) {
         res[num]++
-    }else{
-        res[num] =1 
+    } else {
+        res[num] = 1
     }
 }
 // cl(res)
 
+// count number of element in array using  reduce :
 
-// fibonacci series
+let countReduce = (arr) => {
+    return arr.reduce((acc, cv) => {
+        acc[cv] ? acc[cv]++ : acc[cv] = 1;
+        return acc
+    }, {})
+}
+// cl(countReduce([1, 2, 3, 4, 1, 2, 3, 4, 1]))
 
-const findFibo = (num)=>{
-    if(num ===1 )return 0
-    if(num === 2)return 1
-    return findFibo(num-1)+findFibo(num-2)
+// count number of element in array using reduce but o/p >> {{1:2},{2:3},{3:2}}
+let ObjectCount = (arr) => {
+    return arr.reduce((ac, cv) => {
+        if (ac[cv]) {
+            ac[cv].count++
+        } else {
+            ac[cv] = { number: cv, count: 1 }
+        }
+        return ac
+    }, {})
+}
+cl(ObjectCount([1, 2, 3, 4, 1, 2, 3, 4, 1]))
+// fibonacci series with normal loop
+
+const findFibboLoop = (num) => {
+    let fibArr = [0, 1]
+    if (num === 1) return 0;
+    if (num === 2) return 1;
+    for (let i = 2; i < num; i++) {
+        fibArr.push(fibArr[i - 1] + fibArr[i - 2])
+        // cl(fibArr)
+    }
+    return fibArr[num - 1]
+}
+// cl(findFibboLoop(7))
+// fibonacci series using recurrsive function
+
+const findFibo = (num) => {
+    if (num === 1) return 0
+    if (num === 2) return 1
+    return findFibo(num - 1) + findFibo(num - 2)
+}
+// cl(findFibo(7))
+// cl(findFibo(8))
+
+// fibonacci series with memorization using recurrsive
+
+const findfiboNacci = (num, memory = {}) => {
+    if (num === 1) return 0;
+    if (num === 2) return 1;
+
+    memory[num] = findfiboNacci(num - 1, memory) + findfiboNacci(num - 2, memory)
+    return memory[num]
+}
+// cl(findfiboNacci(7))
+
+
+// find factorial of number using recurrsive function
+// factorial >> factorial of 4 is 1*2*3*4
+// let num = 5;
+const factorialFun = (num) => {
+    if (num < 1) return false
+    if (num === 1) {
+        return 1
+    }
+    return num * factorialFun(num - 1)
+}
+// cl(factorialFun(5)) 
+
+// find count of vowels :
+
+let findCount = (str) => {
+    let vowels = str.match(/[aeiou]/ig)
+    // if we want count then :
+    // cl(vowels.length)
+    cl(vowels)
+    return vowels
 }
 
-cl(findFibo(7))
-cl(findFibo(8))
+// findCount("krishna")
+
+// find count of vowels with trnary operator
+
+const findCountVowels = (str) => {
+    return str.match(/[aeiou]/ig) ? str.match(/[aeiou]/ig) : 0;
+}
+// cl(findCountVowels("krshn"))
+
+// find total of all numbers in *[array]* using recurrsive :
+
+function totalOf(arr) {
+    if (arr.length === 0) {
+        return 0
+    }
+    return arr[0] + totalOf(arr.slice(1))
+}
+// cl(totalOf([22, 44, 11, 54, 81, 53]))
+
+// find product of all array element using recurrsive
+
+function productAll(arr) {
+    if (arr.length === 0) {
+        return 1
+    }
+    return arr[0] * productAll(arr.slice(1))
+}
+// cl(productAll([22, 44, 11, 54, 81, 53]))
 
 
+// add 0 to n using recurrsive function :
+const addUptoN22 = (num) => {
+    if (num === 0) return 0;
+    return num + addUptoN22(num - 1)
+}
+// cl(addUptoN22(10))
