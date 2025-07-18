@@ -393,7 +393,7 @@ let ObjectCount = (arr) => {
         return ac
     }, {})
 }
-cl(ObjectCount([1, 2, 3, 4, 1, 2, 3, 4, 1]))
+// cl(ObjectCount([1, 2, 3, 4, 1, 2, 3, 4, 1]))
 // fibonacci series with normal loop
 
 const findFibboLoop = (num) => {
@@ -487,3 +487,267 @@ const addUptoN22 = (num) => {
     return num + addUptoN22(num - 1)
 }
 // cl(addUptoN22(10))
+
+
+
+// function name1 (str){
+//     let name ="yyy"
+//     return `my name ${str} ${name}`
+// }
+
+// cl(name1("sss"))
+
+// tell order 
+
+// console.log("Start");
+
+// setTimeout(() => {
+//     console.log("Timeout");
+// }, 0);
+
+// Promise.resolve().then(() => {
+//     console.log("Promise");
+// });
+
+// console.log("End");
+
+// console.log("Start") and "End" run first — they’re synchronous.
+// Promise goes to microtask queue — runs after the call stack is clear.
+// setTimeout(..., 0) goes to callback queue — runs after microtasks.
+
+//  function reversepr(str){
+//     if(str == ""){
+//         return ""
+//     }
+//      return reversepr(str.slice(1))+str[0]
+// }
+
+// cl(reversepr("javasc"))
+
+// let renovedup = (arr)=>{
+//     let newres =[];
+//     for(let item of arr){
+//         if(!newres.includes(item)){
+//             newres.push(item)
+//         }
+//     }
+//     return newres
+// }
+// cl(renovedup([1,2,3,4,1,2,3,4]))
+
+// let larg =(arr)=>{
+//     largest = arr[0];
+//     for(let item of arr){
+//         if(item >largest){
+//             largest =item
+//         }
+//     }
+//     return largest
+// }
+// cl(larg([22,44,55,88,11,34,46]))
+
+// let largestWordW = (str)=>{
+//     let words = str.split(" ");
+//     cl(words);
+//     let largest = '';
+//     for(let item of words){
+//         if(item.length > largest.length){
+//             largest = item
+//         }
+
+//     }
+//     return largest
+
+// }
+// cl(largestWordW("i love hdhdhdr"))
+
+// const findPrime = (n)=>{
+//     if(n <= 1) return false
+//     if(n === 2) return true
+//     if(n%2 === 0) return false
+//     for(let i=2 ; i<=Math.sqrt(n);i++){
+//         if(n%i === 0){
+//             return false
+//         }
+//     }
+
+//     cl('it is prime number')
+//     return true
+// }
+
+// cl(findPrime(11))
+
+// const primeLIm =(start ,end)=>{
+//     let prime = []
+//     if(start < end){
+//         for(let i =start ;i<end ;i++){
+//             if (findPrime(i)){
+//                 prime.push(i)
+//             }
+//         }
+//     }
+//     return prime
+// }
+
+// cl(primeLIm(5,15))
+
+// function productRE(arr){
+//     if(arr.length === 0){
+//         return 1
+//     }
+//     return arr[0] * productRE(arr.slice(1))
+// }
+// cl(productRE([1,2,3,4]))
+
+// function findtilln (n){
+//     if(n === 1)return 1
+//     return n * findtilln(n-1)
+// }
+// cl(findtilln(4))
+
+// fibonacci >> 0,1,1,2,3,5,8,13
+
+// function fiboooo(num){
+//     if(num === 1)return 0
+//     if(num === 2)return 1
+//     return fiboooo(num-1) +fiboooo(num-2)
+// }
+// cl(fiboooo(8))
+
+// let frequency =(arr)=>{
+//     return arr.reduce((acc,cv)=>{
+//         acc[cv] ? acc[cv]++ : acc[cv] =1 
+//         return acc
+//     },{})
+// }
+// cl(frequency([1,1,2,2,3,3,4,5,1,2,5,4]))
+
+// let frequency = (arr) =>{
+//     let res ={}
+//     for(let item of arr){
+//         if(res[item]){
+//             res[item]++
+//         }else{
+//             res[item] = 1
+//         }
+
+
+//     }
+//     return res
+// }
+// cl(frequency([1, 1, 2, 2, 3, 3, 4, 5, 1, 2, 5, 4]))
+
+// normalm fiboonacci
+
+// let fibooonaccci =(num)=>{
+//     let fibooarr = [0,1]
+//     if(num === 1)return 0 
+//     if(num === 2)return 1
+
+//     for(let i =2 ; i<num ; i++){
+//        fibooarr.push(fibooarr[i-1]+fibooarr[i-2])
+//     }
+//     return fibooarr[num-1]
+// }
+// cl(fibooonaccci(7))
+
+// let countvowelll = (str)=>{
+//     // return str.match(/[aeiou]/ig)
+//     return str.match(/[aeiou]/ig).length
+
+// }
+// cl(countvowelll("krishna"))
+
+// closuers 
+
+
+// function outer11 (){
+//     let name = "krishna"
+//     let lname = " .a. w"
+//     function inner(){
+//         return(`my name is ${name}${ lname}`)
+//     }
+//     return inner()
+// }
+// cl(outer11())
+
+
+// let promiseFUn = new Promise((resolve,reject)=>{
+//     let flag = false
+//     if(flag){
+//         resolve(`hi there`)
+//     }else{
+//         reject(console.error("error promise"))
+//     }
+// })
+
+// promiseFUn.then((res)=>{
+//     cl(res)
+// }).catch((err)=>{
+//     cl(err)
+// })
+
+// function asyncFunction (){
+//     return new Promise((resolve,reject)=>{
+//         let success = true
+//         if(success){
+//             resolve("got date")
+//         }else{
+//             reject("error")
+//         }
+//     })
+// }
+
+// async function getProise() {
+//     try{
+//         let res = await asyncFunction()
+//         cl(res)
+//     }
+//     catch(error){
+//         cl(error)
+//     }
+// }
+
+// getProise()
+
+// array destructuring
+
+// let arr5 = [40,21,55,66,78]
+// let [k,l,q,...yui] =arr5
+
+// cl(k)
+// cl(l)
+// cl(q)
+// cl(yui)
+
+// let r =5 ,o =9;
+// [r,o] =[o,r]
+// cl(r)
+// cl(o)
+
+// let perobj = {
+//     name111:"kk",
+//     lname111:"lll"
+// }
+// const {name111,lname111} =perobj
+// cl(name111)
+// cl(lname111)
+
+
+
+// let str ="hi , how are you?"
+
+let withoutVowes = (str)=>{
+    let vowelsinstr = str.match(/[aeiou]/ig)
+    cl(vowelsinstr.length)
+
+
+}
+// let arr = str.split("")
+
+// arr.filter((ele) => vowelsinstr)
+cl(withoutVowes("hi , how are you?"))
+
+
+console.log(+[]); // number // 1
+console.log([] + []); // 
