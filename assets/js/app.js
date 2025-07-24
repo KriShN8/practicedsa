@@ -14,6 +14,7 @@ function reverseStr(str) {
 
 // reverse string with reverse for loop
 
+
 function reverseloop(str) {
     let result = "";
     for (let i = str.length - 1; i >= 0; i--) {
@@ -36,7 +37,7 @@ function recurrsiveStr(str) {
 
 // cl(recurrsiveStr("hi krishna"))
 
-// palindrome DSA 
+// palindrome DSA
 
 function palindrome(str) {
     left = 0;
@@ -81,7 +82,7 @@ function duplicateInclude(arr) {
 // cl(duplicateInclude([1, 2, 3, 4, 1, 2, 3, 4]))
 
 
-// find duplicate in array using reduce :: 
+// find duplicate in array using reduce ::
 
 const reduceDuplicate = (arr) => {
     return arr.reduce((acc, cv) => {
@@ -130,7 +131,8 @@ let duplicatefilter = (arr) => {
     })
 }
 // cl(duplicatefilter([1, 2, 3, 4, 1, 2, 3, 4]))
-// largest words in string 
+
+// largest words in string
 
 function largestWords(str) {
     let result = "";
@@ -159,7 +161,7 @@ function outer() {
 }
 // cl(outer())
 
-// promice 
+// promice
 
 let fetchData = new Promise((resolve, reject) => {
     let success = true;
@@ -176,7 +178,7 @@ fetchData.then((res) => {
     cl(err)
 })
 
-// async / await 
+// async / await
 
 function fetchDAtaas() {
     return new Promise((resolve, reject) => {
@@ -222,7 +224,7 @@ async function getDATTA() {
     console.log(`IIFI async function my name is ${nam}`);
 })();
 
-// array destructuring :: array destructuring, which 
+// array destructuring :: array destructuring, which
 // assigns values from the array to variables in order:  >>
 // The remaining values 55 and 44 are ignored 
 // because they aren't included in the destructuring pattern.
@@ -490,12 +492,7 @@ const addUptoN22 = (num) => {
 
 
 
-// function name1 (str){
-//     let name ="yyy"
-//     return `my name ${str} ${name}`
-// }
 
-// cl(name1("sss"))
 
 // tell order 
 
@@ -515,14 +512,6 @@ const addUptoN22 = (num) => {
 // Promise goes to microtask queue — runs after the call stack is clear.
 // setTimeout(..., 0) goes to callback queue — runs after microtasks.
 
-//  function reversepr(str){
-//     if(str == ""){
-//         return ""
-//     }
-//      return reversepr(str.slice(1))+str[0]
-// }
-
-// cl(reversepr("javasc"))
 
 // let renovedup = (arr)=>{
 //     let newres =[];
@@ -737,17 +726,30 @@ const addUptoN22 = (num) => {
 
 // let str ="hi , how are you?"
 
-let withoutVowes = (str)=>{
-    let vowelsinstr = str.match(/[aeiou]/ig)
-    cl(vowelsinstr.length)
+// let withoutVowes111 = (str)=>{
+//     // let vowelsinstr = str.match(/[aeiou]/ig)
+//     let withoutVow = str.replace(/[aeiou]/ig , "")
+//     cl(withoutVow)
 
 
-}
+// }
+// cl(withoutVowes111("hi , how are you"))
 // let arr = str.split("")
 
 // arr.filter((ele) => vowelsinstr)
-cl(withoutVowes("hi , how are you?"))
+// cl(withoutVowes("hi , how are you?"))
 
 
-console.log(+[]); // number // 1
-console.log([] + []); // 
+// console.log(+[]); // 0
+// console.log([] + []); // ""
+
+
+
+
+
+// let xhr = new XMLHttpRequest()
+
+// let url = xhr.open("")
+
+
+
